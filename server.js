@@ -1,5 +1,6 @@
 const express = require('express');
 const fetch = require('node-fetch');
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3333;
@@ -12,8 +13,7 @@ app.use('/', (req, res) => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OGU2YTNkNjdmM2ZhYTE3NjQ4ZjRjM2E4OTc4ZWI1NCIsInN1YiI6IjYwOGZkMDAyMzYzOTA5MDA1OGE0YWJmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.o-Y3KkWnXKCX8Fj6y0nsnGbsjTrDekx1JO2svf81OCc',
+      Authorization: `Bearer ${process.env.API}`,
     },
   };
 
