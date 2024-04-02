@@ -21,6 +21,11 @@ const indexGet = (req, res) => {
   };
 };
 
+const aboutGet = (req, res) => {
+  res.render('about');
+};
+
 module.exports = {
   indexGet,
+  aboutGet,
 };

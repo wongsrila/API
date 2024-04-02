@@ -11,32 +11,8 @@ const port = process.env.PORT || 3333;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-// Routes
-// app.get('/', (req, res) => {
-//   const url =
-//     'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       accept: 'application/json',
-//       Authorization: `Bearer ${process.env.API}`,
-//     },
-//   };
-
-//   fetch(url, options)
-//     .then((res) => res.json())
-//     .then((json) => resultHandle(json))
-//     .catch((err) => console.error('error:' + err));
-
-//   const resultHandle = (results) => {
-//     // console.log(results);
-//     res.render('index', results);
-//   };
-// });
-
-// app.get('/about', (req, res) => {
-//   res.render('about');
-// });
+// Middleware
+app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
 app.use('/', routes);
