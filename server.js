@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
 // Routes
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
   const url =
     'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
   const options = {
@@ -28,9 +28,13 @@ app.use('/', (req, res) => {
     .catch((err) => console.error('error:' + err));
 
   const resultHandle = (results) => {
-    console.log(results);
+    // console.log(results);
     res.render('index', results);
   };
+});
+
+app.get('/about', (req, res) => {
+  res.render('about');
 });
 
 app.listen(port, () =>
