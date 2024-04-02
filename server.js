@@ -1,14 +1,19 @@
 const express = require('express');
 const fetch = require('node-fetch');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3333;
 
+// Setup
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
+
 // Routes
 app.use('/', (req, res) => {
   const url =
-    'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
+    'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
   const options = {
     method: 'GET',
     headers: {
@@ -22,10 +27,10 @@ app.use('/', (req, res) => {
     .then((json) => resultHandle(json))
     .catch((err) => console.error('error:' + err));
 
-  const resultHandle = (result) => {
-    res.send(result);
+  const resultHandle = (results) => {
+    console.log(results);
+    res.render('index', results);
   };
-  // res.send('Hello world!');
 });
 
 app.listen(port, () =>
