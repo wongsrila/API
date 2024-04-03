@@ -3,11 +3,37 @@
   <%- include('./partials/head') %>
   <body>
     <a href="/about">about</a>
+
+    <h2>Popular Movies</h2>
     <ul>
-      <% results.forEach(movie => { %>
+      <% popularMovies.forEach(movie => { %>
       <li>Name: <%= movie.title %></li>
       <img
-        style="width: 30%"
+        style="width: 10%"
+        src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
+        alt=""
+      />
+      <% }) %>
+    </ul>
+
+    <h2>Top Rated Movies</h2>
+    <ul>
+      <% topRatedMovies.forEach(movie => { %>
+      <li>Name: <%= movie.title %></li>
+      <img
+        style="width: 10%"
+        src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
+        alt=""
+      />
+      <% }) %>
+    </ul>
+
+    <h2>Upcoming Movies</h2>
+    <ul>
+      <% upcomingMovies.forEach(movie => { %>
+      <li>Name: <%= movie.title %></li>
+      <img
+        style="width: 10%"
         src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
         alt=""
       />
