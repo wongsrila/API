@@ -4,40 +4,49 @@
   <body>
     <a href="/about">about</a>
 
-    <h2>Popular Movies</h2>
-    <ul>
-      <% popularMovies.forEach(movie => { %>
-      <li>Name: <%= movie.title %></li>
-      <img
-        style="width: 10%"
-        src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
-        alt=""
-      />
-      <% }) %>
-    </ul>
+    <section class="section_categories">
+      <h2>Popular Movies</h2>
+      <div class="category-wrapper">
+        <% popularMovies.forEach(movie => { %>
+        <div class="card-wrapper">
+          <p>Name: <%= movie.title %></p>
+          <img
+            src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
+            alt=""
+          />
+        </div>
+        <% }) %>
+      </div>
+    </section>
 
-    <h2>Top Rated Movies</h2>
-    <ul>
-      <% topRatedMovies.forEach(movie => { %>
-      <li>Name: <%= movie.title %></li>
-      <img
-        style="width: 10%"
-        src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
-        alt=""
-      />
-      <% }) %>
-    </ul>
+    <section class="section_categories">
+      <h2>Top Rated Movies</h2>
+      <div class="category-wrapper">
+        <% topRatedMovies.forEach(movie => { %>
+        <div class="card-wrapper">
+          <p>Name: <%= movie.title %></p>
+          <img
+            src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
+            alt=""
+          />
+        </div>
+        <% }) %>
+      </div>
+    </section>
 
-    <h2>Upcoming Movies</h2>
-    <ul>
-      <% upcomingMovies.forEach(movie => { %>
-      <li>Name: <%= movie.title %></li>
-      <img
-        style="width: 10%"
-        src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
-        alt=""
-      />
-      <% }) %>
-    </ul>
+    <section class="section_categories">
+      <h2>Upcoming Movies</h2>
+      <div class="category-wrapper">
+        <% upcomingMovies.forEach(movie => { %>
+        <div class="card-wrapper">
+          <p>Name: <%= movie.title %></p>
+          <img
+            src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
+            alt=""
+          />
+        </div>
+        <% }) %>
+      </div>
+    </section>
   </body>
 </html>
