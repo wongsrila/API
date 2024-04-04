@@ -63,6 +63,7 @@ async function getMovieDetails(movie_id) {
   }
 }
 
+// Get movie Images
 async function getMovieImages(movie_id) {
   try {
     const response = await fetch(
@@ -83,6 +84,7 @@ async function getMovieImages(movie_id) {
   }
 }
 
+// Get movie trailer
 async function getMovieTrailer(movie_id) {
   try {
     const response = await fetch(
