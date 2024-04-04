@@ -21,7 +21,7 @@ async function getMoviesByCategory(category) {
   }
 }
 
-// Get movie genres
+// Get movie genres list
 async function getMovieGenres() {
   try {
     const response = await fetch(
@@ -63,8 +63,56 @@ async function getMovieDetails(movie_id) {
   }
 }
 
+async function getMovieImages(movie_id) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}/images`,
+      {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${process.env.API}`,
+        },
+      }
+    );
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
+async function getMovieTrailer(movie_id) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}/videos`,
+      {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${process.env.API}`,
+        },
+      }
+    );
+    const data = await response.json();
+    const trailerKey = data.results.find(
+      (video) => video.type === 'Trailer' && video.site === 'YouTube'
+    )?.key;
+    const trailerUrl = trailerKey
+      ? `https://www.youtube.com/embed/${trailerKey}`
+      : null;
+    return trailerUrl;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
 module.exports = {
   getMoviesByCategory,
   getMovieGenres,
   getMovieDetails,
+  getMovieImages,
+  getMovieTrailer,
 };

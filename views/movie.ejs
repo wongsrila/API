@@ -13,5 +13,17 @@
       alt=""
       class="movie_poster"
     />
+    <% if (movieTrailer) { %>
+    <h2>Trailer</h2>
+    <iframe
+      width="560"
+      height="315"
+      src="<%= movieTrailer %>"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    <% } else { %>
+    <p>No trailer available.</p>
+    <% } %>
   </body>
 </html>

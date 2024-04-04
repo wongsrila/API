@@ -14,14 +14,12 @@
       <h2>Popular Movies</h2>
       <div class="category-wrapper">
         <% popularMovies.forEach(movie => { %>
-        <div class="card-wrapper">
-          <p>Name: <%= movie.title %></p>
+        <a href="/movie/<%= movie.id %>" class="card-wrapper">
           <img
             src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
             alt=""
           />
-          <a href="/movie/<%= movie.id %>">Details</a>
-        </div>
+        </a>
         <% }) %>
       </div>
     </section>
@@ -30,14 +28,12 @@
       <h2>Now Playing</h2>
       <div class="category-wrapper">
         <% nowPlaying.forEach(movie => { %>
-        <div class="card-wrapper">
-          <p>Name: <%= movie.title %></p>
+        <a href="/movie/<%= movie.id %>" class="card-wrapper">
           <img
             src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
             alt=""
           />
-          <a href="/movie/<%= movie.id %>">Details</a>
-        </div>
+        </a>
         <% }) %>
       </div>
     </section>
@@ -46,14 +42,12 @@
       <h2>Top Rated Movies</h2>
       <div class="category-wrapper">
         <% topRatedMovies.forEach(movie => { %>
-        <div class="card-wrapper">
-          <p>Name: <%= movie.title %></p>
+        <a href="/movie/<%= movie.id %>" class="card-wrapper">
           <img
             src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
             alt=""
           />
-          <a href="/movie/<%= movie.id %>">Details</a>
-        </div>
+        </a>
         <% }) %>
       </div>
     </section>
@@ -62,13 +56,12 @@
       <h2>Upcoming Movies</h2>
       <div class="category-wrapper">
         <% upcomingMovies.forEach(movie => { %>
-        <div class="card-wrapper">
-          <p>Name: <%= movie.title %></p>
+        <a href="/movie/<%= movie.id %>" class="card-wrapper">
           <img
             src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
             alt=""
           />
-        </div>
+        </a>
         <% }) %>
       </div>
     </section>
