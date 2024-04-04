@@ -4,6 +4,12 @@
   <body>
     <a href="/about">about</a>
 
+    <div class="genres_wrapper">
+      <% movieGenres.forEach(genre => { %>
+      <p><%= genre.name %></p>
+      <% }) %>
+    </div>
+
     <section class="section_categories">
       <h2>Popular Movies</h2>
       <div class="category-wrapper">
@@ -14,6 +20,23 @@
             src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
             alt=""
           />
+          <a href="/movie/<%= movie.id %>">Details</a>
+        </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <section class="section_categories">
+      <h2>Now Playing</h2>
+      <div class="category-wrapper">
+        <% nowPlaying.forEach(movie => { %>
+        <div class="card-wrapper">
+          <p>Name: <%= movie.title %></p>
+          <img
+            src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
+            alt=""
+          />
+          <a href="/movie/<%= movie.id %>">Details</a>
         </div>
         <% }) %>
       </div>
@@ -29,6 +52,7 @@
             src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
             alt=""
           />
+          <a href="/movie/<%= movie.id %>">Details</a>
         </div>
         <% }) %>
       </div>

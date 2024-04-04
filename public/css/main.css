@@ -1,3 +1,8 @@
+.genres_wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
 .section_categories {
   display: flex;
   flex-direction: column;
@@ -16,4 +21,12 @@
   display: flex;
   flex-direction: column;
   width: 10rem;
+}
+
+.movie_poster {
+  width: 30rem;
+}
+
+.movie_overview {
+  text-wrap: balance;
 }
