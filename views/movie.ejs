@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./partials/head') %>
+    <%- include('./partials/head', {headTitle: 'movie details'}) %>
   </head>
   <body>
     <a href="/">Home</a>
     <h1><%= movie.original_title %></h1>
     <p class="movie_overview"><%= movie.overview %></p>
     <p>Released on: <%= movie.release_date %></p>
-    <img
-      src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
-      alt=""
-      class="movie_poster"
-    />
     <% if (movieTrailer) { %>
     <h2>Trailer</h2>
     <iframe
       width="560"
       height="315"
-      src="<%= movieTrailer %>"
+      src="<%= movieTrailer %>?autoplay=1"
       frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     ></iframe>
     <% } else { %>
