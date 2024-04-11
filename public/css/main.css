@@ -1,32 +1,83 @@
-.genres_wrapper {
-  display: flex;
-  gap: 1rem;
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
 }
 
-.section_categories {
+h1 {
+  margin-bottom: 2rem;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  height: fit-content;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+}
+
+.btn {
+  background-color: #000000; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.league-selector {
+  margin-bottom: 2rem;
+}
+
+.fixture-wrapper {
+  display: flex;
+  gap: 3rem;
+  padding: 1.5rem;
+}
+
+.fixture-wrapper:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+.fixture-wrapper:first-child {
+  margin-top: 2rem;
+}
+
+.fixture-info {
   display: flex;
   flex-direction: column;
-
-  margin-bottom: 5rem;
+  align-items: center;
+  justify-content: start;
 }
 
-.category-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+.team-logo {
+  width: 5rem;
 }
 
-.card-wrapper {
+.home-team,
+.away-team {
+  min-width: 10rem;
   display: flex;
   flex-direction: column;
-  width: 10rem;
-}
-
-.movie_poster {
-  width: 30rem;
-}
-
-.movie_overview {
-  text-wrap: balance;
+  justify-content: center;
+  align-items: center;
 }
