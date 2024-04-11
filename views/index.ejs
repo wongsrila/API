@@ -26,7 +26,10 @@
         </tr>
         <% leagueStandings.forEach(row => { %>
         <tr>
-          <td>
+          <td
+            class="pointer-evnt"
+            onclick="window.location='/team/<%= row.team.id %>';"
+          >
             <%= row.rank %> <img src="<%= row.team.logo %>" width="18" /> <%=
             row.team.name %>
           </td>

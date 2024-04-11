@@ -28,6 +28,10 @@ tr:nth-child(even) {
   background-color: #f0f0f0;
 }
 
+.pointer-evnt {
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   gap: 2rem;
