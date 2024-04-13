@@ -16,6 +16,21 @@ app.use(express.static(path.join(__dirname, '/public')));
 // Routes
 app.use('/', routes);
 
+// app.get('/events', (req, res) => {
+//   res.setHeader('Content-Type', 'text/event-stream');
+//   res.setHeader('Cache-Control', 'no-cache');
+//   res.setHeader('Connection', 'keep-alive');
+
+//   const sendEvent = setInterval(() => {
+//     res.write(`data: ${new Date().toLocaleTimeString()}\n\n`);
+//   }, 10000);
+
+//   req.on('close', () => {
+//     clearInterval(sendEvent);
+//     res.end();
+//   });
+// });
+
 app.listen(port, () =>
   console.log(`Listening on port http://localhost:${port}/`)
 );

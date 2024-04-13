@@ -28,7 +28,7 @@ function formatTimestampAsTime(timestamp) {
 
 const teamGet = async (req, res) => {
   try {
-    teamId = req.params.id;
+    const teamId = req.params.id;
 
     const teamData = await teamInfo(teamId);
     const getUpcomingGames = await upcomingGamesTeam(teamId);

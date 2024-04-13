@@ -22,115 +22,26 @@ function formatTimestampAsTime(timestamp) {
   return date.toLocaleTimeString('nl-NL', timeOptions);
 }
 
-// Eredividie
+// Index view / Home page
 const indexGet = async (req, res) => {
   try {
-    const getLeague = await getLeagueStandings(88);
-    const leagueStandings = getLeague.standings[0];
-
-    const getUpcomingGames = await upcomingGames(88);
-
-    res.render('index', {
-      leagueStandings,
-      getUpcomingGames,
-      formatDate,
-      formatTimestampAsTime,
-    });
+    res.render('index');
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
   }
 };
 
-// Premier League
-const plGet = async (req, res) => {
+// Get league stanings info
+const leagueGet = async (req, res) => {
   try {
-    const getLeague = await getLeagueStandings(39);
+    const leagueId = req.params.id;
+    const getLeague = await getLeagueStandings(leagueId);
     const leagueStandings = getLeague.standings[0];
 
-    const getUpcomingGames = await upcomingGames(39);
+    const getUpcomingGames = await upcomingGames(leagueId);
 
-    res.render('index', {
-      leagueStandings,
-      getUpcomingGames,
-      formatDate,
-      formatTimestampAsTime,
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
-  }
-};
-
-// Bundesliga
-const blGet = async (req, res) => {
-  try {
-    const getLeague = await getLeagueStandings(78);
-    const leagueStandings = getLeague.standings[0];
-
-    const getUpcomingGames = await upcomingGames(78);
-
-    res.render('index', {
-      leagueStandings,
-      getUpcomingGames,
-      formatDate,
-      formatTimestampAsTime,
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
-  }
-};
-
-// La Liga
-const llGet = async (req, res) => {
-  try {
-    const getLeague = await getLeagueStandings(140);
-    const leagueStandings = getLeague.standings[0];
-
-    const getUpcomingGames = await upcomingGames(140);
-
-    res.render('index', {
-      leagueStandings,
-      getUpcomingGames,
-      formatDate,
-      formatTimestampAsTime,
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
-  }
-};
-
-// Serie A
-const saGet = async (req, res) => {
-  try {
-    const getLeague = await getLeagueStandings(135);
-    const leagueStandings = getLeague.standings[0];
-
-    const getUpcomingGames = await upcomingGames(135);
-
-    res.render('index', {
-      leagueStandings,
-      getUpcomingGames,
-      formatDate,
-      formatTimestampAsTime,
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
-  }
-};
-
-// Ligue 1
-const l1Get = async (req, res) => {
-  try {
-    const getLeague = await getLeagueStandings(61);
-    const leagueStandings = getLeague.standings[0];
-
-    const getUpcomingGames = await upcomingGames(61);
-
-    res.render('index', {
+    res.render('league', {
       leagueStandings,
       getUpcomingGames,
       formatDate,
@@ -144,9 +55,5 @@ const l1Get = async (req, res) => {
 
 module.exports = {
   indexGet,
-  plGet,
-  blGet,
-  llGet,
-  saGet,
-  l1Get,
+  leagueGet,
 };
