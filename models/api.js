@@ -105,10 +105,32 @@ async function teamInfo(team_id) {
   }
 }
 
+// Get fixture details
+async function fixtureDetails(fixture_id) {
+  try {
+    const response = await fetch(
+      `https://api-football-v1.p.rapidapi.com/v3/fixtures?id=${fixture_id}`,
+      {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': `${process.env.API}`,
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+        },
+      }
+    );
+    const data = await response.json();
+    return data.response[0];
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
 module.exports = {
   getLeagueStandings,
   upcomingGames,
   upcomingGamesTeam,
   getResultsTeam,
   teamInfo,
+  fixtureDetails,
 };

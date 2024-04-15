@@ -56,6 +56,8 @@ tr:nth-child(even) {
   display: flex;
   gap: 3rem;
   padding: 1.5rem;
+  text-decoration: none;
+  color: #000000;
 }
 
 .fixture-wrapper:nth-child(even) {

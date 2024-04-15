@@ -67,7 +67,7 @@
       <div class="upcoming-wrapper">
         <h1>Upcoming matches</h1>
         <% getUpcomingGames.forEach(game => { %>
-        <div class="fixture-wrapper">
+        <a href="/fixture/<%= game.fixture.id %>" class="fixture-wrapper">
           <div class="home-team">
             <img class="team-logo" src="<%= game.teams.home.logo %>" />
             <h3><%= game.teams.home.name %></h3>
@@ -81,7 +81,7 @@
             <img class="team-logo" src="<%= game.teams.away.logo %>" />
             <h3><%= game.teams.away.name %></h3>
           </div>
-        </div>
+        </a>
         <% }) %>
       </div>
     </div>

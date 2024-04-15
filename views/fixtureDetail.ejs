@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head', {headTitle: 'Dashboard'}) %>
+  <body>
+    <h1>Fixture Details</h1>
+
+    <div class="fixture-wrapper">
+      <div class="home-team">
+        <img class="team-logo" src="<%= fixtureInfo.teams.home.logo %>" />
+        <h3><%= fixtureInfo.teams.home.name %></h3>
+      </div>
+      <div>
+        <h1><%= fixtureInfo.score.fulltime.home %></h1>
+      </div>
+      <div class="fixture-info">
+        <p><%= formatDate(fixtureInfo.fixture.date) %></p>
+        <p><%= formatTimestampAsTime(fixtureInfo.fixture.timestamp) %></p>
+        <h3>VS</h3>
+      </div>
+      <h1><%= fixtureInfo.score.fulltime.away %></h1>
+      <div class="away-team">
+        <img class="team-logo" src="<%= fixtureInfo.teams.away.logo %>" />
+        <h3><%= fixtureInfo.teams.away.name %></h3>
+      </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>
