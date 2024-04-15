@@ -8,7 +8,6 @@ const router = express.Router();
 router.get('/', indexController.indexGet);
 router.get('/league/:id', indexController.leagueGet);
 router.get('/team/:id', teamController.teamGet);
-router.get('/team/:id', teamController.teamGet);
 router.get('/fixture/:id', fixtureController.fixtureGet);
 
 module.exports = router;
