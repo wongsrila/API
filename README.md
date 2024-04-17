@@ -1,3 +1,5 @@
 # Plan van aanpak
 
-Hello
+1. Progressive Web App
+2. Share function
+3. Server sent events
