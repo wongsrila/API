@@ -1,5 +1,6 @@
 const { fixtureDetails } = require('../models/api');
 const { formatDate, formatTimestampAsTime } = require('../utils/dateFormats');
+const fixtureDataJson = require('../models/fixtureData.json');
 const fs = require('fs');
 const path = require('path');
 
@@ -12,7 +13,7 @@ const fixtureStream = (req, res) => {
 
   // Function to send data
   const sendLiveStats = async () => {
-    // Fetch stats from the API-Football
+    // const fixtureData = fixtureDataJson;
     const fixtureData = await fixtureDetails(fixtureId);
 
     const fixtureStatus = fixtureData.fixture.status.short;

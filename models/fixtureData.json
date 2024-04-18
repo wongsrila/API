@@ -7,7 +7,7 @@
     "timestamp": 1713105900,
     "periods": { "first": 1713105900, "second": 1713109500 },
     "venue": { "id": 1117, "name": "Johan Cruijff Arena", "city": "Amsterdam" },
-    "status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
+    "status": { "long": "Match Finished", "short": "1H", "elapsed": 90 }
   },
   "league": {
     "id": 88,

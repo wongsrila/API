@@ -9,6 +9,7 @@ shareBtn.addEventListener('click', async () => {
     if (navigator.share) {
       await navigator.share({
         title: 'Live Fixture',
+        text: 'Check out this page it’s awesome!',
         url: currentURL,
       });
       console.log('Content shared successfully!');
