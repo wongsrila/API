@@ -6,6 +6,35 @@
 
     <%- include('./partials/navigation') %>
 
+    <div class="container">
+      <div class="upcoming-wrapper">
+        <h1>Live matches</h1>
+        <% getLiveGames.forEach(game => { %>
+        <a href="/fixture/<%= game.fixture.id %>" class="fixture-wrapper">
+          <div class="home-team">
+            <img class="team-logo" src="<%= game.teams.home.logo %>" />
+            <h3><%= game.teams.home.name %></h3>
+          </div>
+          <div>
+            <h1 id="home-score"><%= game.goals.home %></h1>
+          </div>
+          <div class="fixture-info">
+            <p><%= formatDate(game.fixture.date) %></p>
+            <p><%= formatTimestampAsTime(game.fixture.timestamp) %></p>
+            <h3>VS</h3>
+          </div>
+          <div>
+            <h1 id="away-score"><%= game.goals.away %></h1>
+          </div>
+          <div class="away-team">
+            <img class="team-logo" src="<%= game.teams.away.logo %>" />
+            <h3><%= game.teams.away.name %></h3>
+          </div>
+        </a>
+        <% }) %>
+      </div>
+    </div>
+
     <script src="/js/main.js"></script>
   </body>
 </html>

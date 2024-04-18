@@ -5,10 +5,10 @@
     <h1>Fixture Details</h1>
 
     <div class="fixture-wrapper">
-      <div class="home-team">
+      <a href="/team/<%= fixtureInfo.teams.home.id %>" class="home-team">
         <img class="team-logo" src="<%= fixtureInfo.teams.home.logo %>" />
         <h3><%= fixtureInfo.teams.home.name %></h3>
-      </div>
+      </a>
       <div>
         <h1 id="home-score"><%= fixtureInfo.score.fulltime.home %></h1>
       </div>
@@ -21,10 +21,10 @@
         <b id="timeElapsed"></b>
       </div>
       <h1 id="away-score"><%= fixtureInfo.score.fulltime.away %></h1>
-      <div class="away-team">
+      <a href="/team/<%= fixtureInfo.teams.away.id %>" class="away-team">
         <img class="team-logo" src="<%= fixtureInfo.teams.away.logo %>" />
         <h3><%= fixtureInfo.teams.away.name %></h3>
-      </div>
+      </a>
     </div>
 
     <h1>Live Events</h1>

@@ -1,6 +1,39 @@
 const { fixtureDetails } = require('../models/api');
 const { formatDate, formatTimestampAsTime } = require('../utils/dateFormats');
 
+const fixtureStream = (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+
+  const fixtureId = req.params.id;
+
+  // Function to send data
+  const sendLiveStats = async () => {
+    // Fetch stats from the API-Football
+    const fixtureData = await fixtureDetails(fixtureId);
+
+    const fixtureStatus = fixtureData.fixture.status.short;
+
+    if (
+      ['1H', 'HT', '2H', 'ET', 'BT', 'P', 'SUSP', 'INT'].includes(fixtureStatus)
+    ) {
+      res.write(`data: ${JSON.stringify(fixtureData)}\n\n`);
+    }
+  };
+
+  sendLiveStats();
+
+  // Send data every minute
+  const intervalId = setInterval(sendLiveStats, 30000);
+
+  // Clear interval on client disconnect
+  req.on('close', () => {
+    clearInterval(intervalId);
+    res.end();
+  });
+};
+
 const fixtureGet = async (req, res) => {
   try {
     const fixtureId = req.params.id;
@@ -19,4 +52,5 @@ const fixtureGet = async (req, res) => {
 
 module.exports = {
   fixtureGet,
+  fixtureStream,
 };

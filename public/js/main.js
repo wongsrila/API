@@ -9,7 +9,12 @@ function formatTimestampAsTime(timestamp) {
   return date.toLocaleTimeString('nl-NL', timeOptions);
 }
 
-const evtSource = new EventSource('/events');
+// Your URL path
+const path = window.location.pathname;
+const parts = path.split('/');
+const id = parts[parts.length - 1];
+
+const evtSource = new EventSource(`/fixtures/${id}/events`);
 evtSource.onmessage = function (event) {
   const data = JSON.parse(event.data);
 

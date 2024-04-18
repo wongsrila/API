@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-// Get movies by Category
+// Get League stanings
 async function getLeagueStandings(league_id) {
   try {
     const response = await fetch(
@@ -26,6 +26,27 @@ async function upcomingGames(league_id) {
   try {
     const response = await fetch(
       `https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${league_id}&season=2023&next=9`,
+      {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': `${process.env.API}`,
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+        },
+      }
+    );
+    const data = await response.json();
+    return data.response;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
+// Get live games
+async function liveGames() {
+  try {
+    const response = await fetch(
+      `https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all`,
       {
         method: 'GET',
         headers: {
@@ -129,6 +150,7 @@ async function fixtureDetails(fixture_id) {
 module.exports = {
   getLeagueStandings,
   upcomingGames,
+  liveGames,
   upcomingGamesTeam,
   getResultsTeam,
   teamInfo,
