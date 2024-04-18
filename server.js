@@ -18,6 +18,11 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/', routes);
 app.get('/fixtures/:id/events', fixtureStream);
 
+app.get('/manifest.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.sendFile(path.join(__dirname, 'manifest.json'));
+});
+
 app.listen(port, () =>
   console.log(`Listening on port http://localhost:${port}/`)
 );

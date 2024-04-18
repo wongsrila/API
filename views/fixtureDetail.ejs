@@ -2,6 +2,8 @@
 <html lang="en">
   <%- include('./partials/head', {headTitle: 'Dashboard'}) %>
   <body>
+    <%- include('./partials/navigation') %>
+
     <h1>Fixture Details</h1>
 
     <div class="fixture-wrapper">
@@ -26,9 +28,11 @@
         <h3><%= fixtureInfo.teams.away.name %></h3>
       </a>
     </div>
-
-    <h1>Live Events</h1>
+    <button id="shareBtn">Share Fixture</button>
+    <h1 id="live-events-title"></h1>
     <div id="eventsContainer"></div>
     <script src="/js/main.js"></script>
+    <script src="/js/sse.js"></script>
+    <script src="/js/share.js"></script>
   </body>
 </html>

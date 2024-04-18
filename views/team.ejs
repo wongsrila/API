@@ -4,6 +4,8 @@
     <%- include('./partials/head', {headTitle: 'Dashboard'}) %>
   </head>
   <body>
+    <%- include('./partials/navigation') %>
+
     <img src="<%= teamData.standings[0][0].team.logo %>" alt="" />
     <h3><%= teamData.standings[0][0].team.name %></h3>
     <div class="upcoming-wrapper">
