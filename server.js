@@ -23,6 +23,10 @@ app.get('/manifest.json', (req, res) => {
   res.sendFile(path.join(__dirname, 'manifest.json'));
 });
 
-app.listen(port, () =>
-  console.log(`Listening on port http://localhost:${port}/`)
-);
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Listening on port http://localhost:${port}/`);
+  });
+}
+
+module.exports = app;
