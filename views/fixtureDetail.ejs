@@ -10,24 +10,25 @@
         <h3><%= fixtureInfo.teams.home.name %></h3>
       </div>
       <div>
-        <!-- <h1 id="home-score"><%= fixtureInfo.score.fulltime.home %></h1> -->
-        <h1 id="home-score"></h1>
+        <h1 id="home-score"><%= fixtureInfo.score.fulltime.home %></h1>
       </div>
       <div class="fixture-info">
         <p><%= formatDate(fixtureInfo.fixture.date) %></p>
-        <p id="timestamp"></p>
+        <p id="timestamp">
+          <%= formatTimestampAsTime(fixtureInfo.fixture.timestamp) %>
+        </p>
         <h3>VS</h3>
+        <b id="timeElapsed"></b>
       </div>
-      <!-- <h1 id="away-score"><%= fixtureInfo.score.fulltime.away %></h1> -->
-      <h1 id="away-score"></h1>
+      <h1 id="away-score"><%= fixtureInfo.score.fulltime.away %></h1>
       <div class="away-team">
         <img class="team-logo" src="<%= fixtureInfo.teams.away.logo %>" />
         <h3><%= fixtureInfo.teams.away.name %></h3>
       </div>
     </div>
 
-    <h1>Live Football Game Stats</h1>
-    <div id="stats"></div>
+    <h1>Live Events</h1>
+    <div id="eventsContainer"></div>
     <script src="/js/main.js"></script>
   </body>
 </html>

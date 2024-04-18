@@ -87,3 +87,49 @@ tr:nth-child(even) {
   justify-content: center;
   align-items: center;
 }
+
+#eventsContainer {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  display: inline-block; /* Or flex for a flexbox layout */
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+  color: #444;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-body {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.card-team-logo {
+  width: 40px;
+}
+
+.goal {
+  background-color: lightblue;
+}
+
+.yellow-card {
+  background-color: yellow;
+}
+
+.red-card {
+  background-color: red;
+}

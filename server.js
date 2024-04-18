@@ -68,7 +68,7 @@ app.get('/events', (req, res) => {
         timestamp: 1713105900,
         periods: { first: 1713105900, second: 1713109500 },
         venue: { id: 1117, name: 'Johan Cruijff Arena', city: 'Amsterdam' },
-        status: { long: 'Match Finished', short: 'FT', elapsed: 90 },
+        status: { long: 'Match Finished', short: '1H', elapsed: 57 },
       },
       league: {
         id: 88,
@@ -93,7 +93,7 @@ app.get('/events', (req, res) => {
           winner: false,
         },
       },
-      goals: { home: 2, away: 1 },
+      goals: { home: 4, away: 1 },
       score: {
         halftime: { home: 0, away: 1 },
         fulltime: { home: 2, away: 1 },
@@ -2696,8 +2696,21 @@ app.get('/events', (req, res) => {
       ],
     };
 
-    // Send data as a stringified JSON
-    res.write(`data: ${JSON.stringify(fixtureData)}\n\n`);
+    const fixtureStatus = fixtureData.fixture.status.short;
+
+    if (
+      fixtureStatus == '1H' ||
+      fixtureStatus == 'HT' ||
+      fixtureStatus == '2H' ||
+      fixtureStatus == 'ET' ||
+      fixtureStatus == 'BT' ||
+      fixtureStatus == 'P' ||
+      fixtureStatus == 'SUSP' ||
+      fixtureStatus == 'INT'
+    ) {
+      // Send data as a stringified JSON
+      res.write(`data: ${JSON.stringify(fixtureData)}\n\n`);
+    }
   };
 
   sendStats();
